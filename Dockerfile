@@ -10,7 +10,7 @@ FROM --platform=$BUILDPLATFORM ruby AS build
 
 WORKDIR /endoflife.date
 COPY --from=base /git/endoflife.date .
-RUN bundle install --deployment && \
+RUN bundle install && \
     bundle exec jekyll build
 
 FROM joseluisq/static-web-server
